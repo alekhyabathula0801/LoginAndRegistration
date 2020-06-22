@@ -14,7 +14,7 @@
 <form action="Login" method="post">
     <table>
         <tr> <td> Login Page </td></tr>
-        <tr> <td> Enter UserName : </td> <td> <input type="text" name="userName"></td></tr>
+        <tr> <td>Enter UserName : </td> <td> <input type="text" name="userName"></td></tr>
         <tr> <td>Enter Password : </td> <td> <input type="password" name="password"></td></tr>
         <tr> <td><input type="submit" value="Login"></td> </tr>
     </table>
