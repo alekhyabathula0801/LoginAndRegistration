@@ -5,23 +5,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/Registration")
+public class Registration extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userName = request.getParameter("userName");
         String userId = request.getParameter("userId");
         String password = request.getParameter("password");
         LoginDAO loginDAO = new LoginDAO();
-        if(loginDAO.check(userId,password)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("userId",userId);
-            session.setAttribute("password",password);
-            response.sendRedirect("welcome.jsp");
-        } else {
+        if (loginDAO.addUserToDataBase(userName,userId,password)){
             response.sendRedirect("login.jsp");
+        } else {
+            response.sendRedirect("register.jsp");
         }
     }
 

@@ -13,10 +13,10 @@
 <body>
 <%
     response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
-    if (session.getAttribute("userName")==null)
+    if (session.getAttribute("userId")==null)
         response.sendRedirect("login.jsp");
 %>
-Welcome ${userName}
+Welcome ${userId}
 <form action="Logout" method="post">
     <input type="submit" value="Logout">
 </form>
