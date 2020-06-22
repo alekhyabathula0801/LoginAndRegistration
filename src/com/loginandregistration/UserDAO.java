@@ -2,7 +2,7 @@ package com.loginandregistration;
 
 import java.sql.*;
 
-public class LoginDAO {
+public class UserDAO {
 
     String sql = "select * from registration where userId=? and password=?";
     String url = "jdbc:mysql://localhost:3306/database1";

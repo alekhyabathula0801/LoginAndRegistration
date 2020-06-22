@@ -14,8 +14,8 @@ public class Registration extends HttpServlet {
         String userName = request.getParameter("userName");
         String userId = request.getParameter("userId");
         String password = request.getParameter("password");
-        LoginDAO loginDAO = new LoginDAO();
-        if (loginDAO.addUserToDataBase(userName,userId,password)){
+        UserDAO userDAO = new UserDAO();
+        if (userDAO.addUserToDataBase(userName,userId,password)){
             response.sendRedirect("login.jsp");
         } else {
             response.sendRedirect("register.jsp");
