@@ -17,6 +17,7 @@ public class Login extends HttpServlet {
         if(userName.equals("alekhya") && password.equals("pass")) {
             HttpSession session = request.getSession();
             session.setAttribute("userName",userName);
+            session.setAttribute("password",password);
             response.sendRedirect("welcome.jsp");
         } else {
             response.sendRedirect("login.jsp");
