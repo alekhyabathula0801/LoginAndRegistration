@@ -14,19 +14,19 @@
 <body>
 <div class="login">
     <div class="form">
-    <form action="Login" method="post">
-        <h3>Login Page</h3><br>
-        <input type="text" name="userId" required placeholder="User ID"> <br>
-        <input type="password" name="password" required placeholder="Password"><br>
-        <input type="submit" value="Login" style="margin-right: 40px"><a style="font-size: 30px;" href="register.jsp">Registration</a><br>
-        <c:if test = "${not empty message}">
-            <p> ${message} </p>
-        </c:if>
-    </form>
+        <form action="Login" method="post">
+            <h3>Login Page</h3><br>
+            <input type="text" name="userId" required placeholder="User ID"> <br>
+            <input type="password" name="password" required placeholder="Password"><br>
+            <input type="submit" value="Login" style="margin-right: 40px"><a style="font-size: 30px;" href="register.jsp">Registration</a><br>
+            <c:if test = "${not empty message}">
+                <p> ${message} </p>
+            </c:if>
+        </form>
     </div>
 </div>
 <%
-session.setAttribute("message",null);
+    session.setAttribute("message",null);
 %>
 
 </body>

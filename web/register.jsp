@@ -15,16 +15,16 @@
 
 <div class="register">
     <div class="form">
-<form action="Registration" method="post">
-    <h3>Registration Page </h3><br>
-    <input type="text" name="userName" required placeholder="User Name"><br>
-    <input type="text" name="userId" required placeholder="User Id"><br>
-    <input type="password" name="password" required placeholder="Password"><br>
-    <input type="submit" value="Register"><br>
-    <c:if test = "${not empty message}">
-        <p>${message}</p>
-    </c:if>
-</form>
+        <form action="Registration" method="post">
+            <h3>Registration Page </h3><br>
+            <input type="text" name="userName" required placeholder="User Name"><br>
+            <input type="text" name="userId" required placeholder="User Id"><br>
+            <input type="password" name="password" required placeholder="Password"><br>
+            <input type="submit" value="Register"><br>
+            <c:if test = "${not empty message}">
+                <p>${message}</p>
+            </c:if>
+        </form>
     </div>
 </div>
 <%
