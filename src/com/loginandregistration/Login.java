@@ -14,13 +14,11 @@ import java.io.IOException;
 public class Login extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userId = request.getParameter("userId");
+        String emailId = request.getParameter("emailId");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
-        UserDAO userDAO = new UserDAO();
-        if(userDAO.check(userId,password)) {
-            session.setAttribute("userId",userId);
-            session.setAttribute("password",password);
+        if(new UserDAO().check(emailId,password)) {
+            session.setAttribute("emailId",emailId);
             response.sendRedirect("welcome.jsp");
         } else {
             session.setAttribute("message","Data Not Found..click on Registration");

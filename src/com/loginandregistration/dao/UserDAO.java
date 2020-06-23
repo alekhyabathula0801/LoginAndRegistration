@@ -4,17 +4,17 @@ import java.sql.*;
 
 public class UserDAO {
 
-    String sql = "select * from registration where userId=? and password=?";
+    String queryStatement = "select * from registration where emailId=? and password=?";
     String url = "jdbc:mysql://localhost:3306/database1";
     String username = "root";
     String passwords = "1211";
     String insertStatement = "insert into registration values (?, ?, ?, ?);";
     Connection connection = getConnection();
 
-    public boolean check(String userId, String password) {
+    public boolean check(String emailId, String password) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, userId);
+            PreparedStatement preparedStatement = connection.prepareStatement(queryStatement);
+            preparedStatement.setString(1, emailId);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next())
@@ -35,10 +35,10 @@ public class UserDAO {
         return null;
     }
 
-    public boolean addUserToDataBase(String username,String userId, String passwords, int userAge){
+    public boolean addUserToDataBase(String username, String passwords, int userAge, String emailId){
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertStatement);
-            preparedStatement.setString(1, userId);
+            preparedStatement.setString(1, emailId);
             preparedStatement.setString(2, username);
             preparedStatement.setString(3, passwords);
             preparedStatement.setString(4, String.valueOf(userAge));

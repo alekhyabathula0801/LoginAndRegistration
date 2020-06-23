@@ -19,7 +19,7 @@
             <h3>Registration Page </h3><br>
             <input type="text" name="userName" required placeholder="User Name"><br>
             <input type="number" name="userAge" required placeholder="User Age"><br>
-            <input type="text" name="userId" required placeholder="User Id"><br>
+            <input type="text" name="emailId" required placeholder="Email ID"><br>
             <input type="password" name="password" required placeholder="Password"><br>
             <input type="submit" value="Register" style="margin-right: 40px"><a style="font-size: 30px;" href="login.jsp">Login</a><br>
             <c:if test = "${not empty message}">

@@ -15,16 +15,15 @@ public class Registration extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("userName");
-        String userId = request.getParameter("userId");
+        String emailId = request.getParameter("emailId");
         String password = request.getParameter("password");
         int userAge = Integer.parseInt(request.getParameter("userAge"));
         HttpSession session = request.getSession();
-        UserDAO userDAO = new UserDAO();
-        if (userDAO.addUserToDataBase(userName,userId,password,userAge)){
+        if (new UserDAO().addUserToDataBase(userName,password,userAge,emailId)){
             session.setAttribute("message","Registration Successfull...Login to continue");
             response.sendRedirect("login.jsp");
         } else {
-            session.setAttribute("message","User Id exists");
+            session.setAttribute("message","Email Id exists");
             response.sendRedirect("register.jsp");
         }
     }

@@ -13,7 +13,7 @@ public class Logout extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.removeAttribute("userId");
+        session.removeAttribute("emailId");
         session.invalidate();
         request.getSession().setAttribute("message","Logout Succussfull");
         response.sendRedirect("login.jsp");
