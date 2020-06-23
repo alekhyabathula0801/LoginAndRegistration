@@ -1,4 +1,4 @@
-package com.loginandregistration;
+package com.loginandregistration.controller;
 
 import com.loginandregistration.dao.UserDAO;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String emailId = request.getParameter("emailId");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
