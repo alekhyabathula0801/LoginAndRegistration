@@ -15,6 +15,7 @@ public class Logout extends HttpServlet {
         HttpSession session = request.getSession();
         session.removeAttribute("userId");
         session.invalidate();
+        request.getSession().setAttribute("message","Logout Succussfull");
         response.sendRedirect("login.jsp");
     }
 

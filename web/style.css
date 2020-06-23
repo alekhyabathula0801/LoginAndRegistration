@@ -1,7 +1,7 @@
 body{
     background-position: center;
 }
-.login,.register{
+.login,.register,.welcome{
     width: 600px;
     padding: 15px;
     margin: auto;
@@ -30,4 +30,9 @@ h3{
     text-align: center;
     color: red;
     font-size: 30px;
+}
+h4{
+    text-align: center;
+    color: crimson;
+    font-size: 40px;
 }

@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Welcome</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <%
@@ -16,9 +17,14 @@
     if (session.getAttribute("userId")==null)
         response.sendRedirect("login.jsp");
 %>
-Welcome ${userId}
-<form action="Logout" method="post">
-    <input type="submit" value="Logout">
-</form>
+<div class="welcome">
+    <div class="form">
+        <h4>Welcome</h4>
+        <p>Have a nice day ${userId}</p>
+        <form action="Logout" method="post">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+</div>
 </body>
 </html>
