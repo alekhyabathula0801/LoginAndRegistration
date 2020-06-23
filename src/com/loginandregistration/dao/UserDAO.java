@@ -1,4 +1,4 @@
-package com.loginandregistration;
+package com.loginandregistration.dao;
 
 import java.sql.*;
 
@@ -8,7 +8,7 @@ public class UserDAO {
     String url = "jdbc:mysql://localhost:3306/database1";
     String username = "root";
     String passwords = "1211";
-    String insertStatement = "insert into registration values (?, ?, ?);";
+    String insertStatement = "insert into registration values (?, ?, ?, ?);";
     Connection connection = getConnection();
 
     public boolean check(String userId, String password) {
@@ -35,12 +35,13 @@ public class UserDAO {
         return null;
     }
 
-    public boolean addUserToDataBase(String username,String userId, String passwords){
+    public boolean addUserToDataBase(String username,String userId, String passwords, int userAge){
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertStatement);
             preparedStatement.setString(1, userId);
             preparedStatement.setString(2, username);
             preparedStatement.setString(3, passwords);
+            preparedStatement.setString(4, String.valueOf(userAge));
             return preparedStatement.executeUpdate()==1;
         } catch (Exception e) {
             e.printStackTrace();

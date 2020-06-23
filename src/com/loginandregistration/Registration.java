@@ -1,5 +1,7 @@
 package com.loginandregistration;
 
+import com.loginandregistration.dao.UserDAO;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +17,10 @@ public class Registration extends HttpServlet {
         String userName = request.getParameter("userName");
         String userId = request.getParameter("userId");
         String password = request.getParameter("password");
+        int userAge = Integer.parseInt(request.getParameter("userAge"));
         HttpSession session = request.getSession();
         UserDAO userDAO = new UserDAO();
-        if (userDAO.addUserToDataBase(userName,userId,password)){
+        if (userDAO.addUserToDataBase(userName,userId,password,userAge)){
             session.setAttribute("message","Registration Successfull...Login to continue");
             response.sendRedirect("login.jsp");
         } else {
