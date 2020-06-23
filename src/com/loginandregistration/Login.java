@@ -14,13 +14,14 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = request.getParameter("userId");
         String password = request.getParameter("password");
+        HttpSession session = request.getSession();
         UserDAO userDAO = new UserDAO();
         if(userDAO.check(userId,password)) {
-            HttpSession session = request.getSession();
             session.setAttribute("userId",userId);
             session.setAttribute("password",password);
             response.sendRedirect("welcome.jsp");
         } else {
+            session.setAttribute("message","Data Not Found..click on Registration");
             response.sendRedirect("login.jsp");
         }
     }

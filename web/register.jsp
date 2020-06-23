@@ -9,18 +9,26 @@
 <html>
 <head>
     <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="register">
+    <div class="form">
 <form action="Registration" method="post">
-    <table>
-        <tr> <td> Registration Page </td></tr>
-        <tr> <td>Enter User Name : </td> <td> <input type="text" name="userName"></td></tr>
-        <tr> <td>Enter User Id : </td> <td> <input type="text" name="userId"></td></tr>
-        <tr> <td>Enter Password : </td> <td> <input type="password" name="password"></td></tr>
-        <tr> <td>Retype Password : </td> <td> <input type="password" name="retypePassword"></td></tr>
-        <tr> <td><input type="submit" value="Register"></td></tr>
-    </table>
+    <h3>Registration Page </h3><br>
+    <input type="text" name="userName" required placeholder="User Name"><br>
+    <input type="text" name="userId" required placeholder="User Id"><br>
+    <input type="password" name="password" required placeholder="Password"><br>
+    <input type="submit" value="Register"><br>
+    <c:if test = "${not empty message}">
+        <p>${message}</p>
+    </c:if>
 </form>
+    </div>
+</div>
+<%
+    session.setAttribute("message",null);
+%>
 </body>
 </html>

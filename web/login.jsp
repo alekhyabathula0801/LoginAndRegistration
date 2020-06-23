@@ -9,15 +9,25 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form action="Login" method="post">
-    <table>
-        <tr> <td> Login Page </td></tr>
-        <tr> <td>Enter UserId : </td> <td> <input type="text" name="userId"></td></tr>
-        <tr> <td>Enter Password : </td> <td> <input type="password" name="password"></td></tr>
-        <tr> <td><input type="submit" value="Login"></td><td><a href="register.jsp">Registration</a></td></tr>
-    </table>
-</form>
+<div class="login">
+    <div class="form">
+    <form action="Login" method="post">
+        <h3>Login Page</h3><br>
+        <input type="text" name="userId" required placeholder="User ID"> <br>
+        <input type="password" name="password" required placeholder="Password"><br>
+        <input type="submit" value="Login" style="margin-right: 40px"><a style="font-size: 30px;" href="register.jsp">Registration</a><br>
+        <c:if test = "${not empty message}">
+            <p> ${message} </p>
+        </c:if>
+    </form>
+    </div>
+</div>
+<%
+session.setAttribute("message",null);
+%>
+
 </body>
 </html>
